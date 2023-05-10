@@ -1,0 +1,424 @@
+/*sE DEFINE EL COLOR DEL CUERPO */
+body{
+    
+    background-color: #181A1C ;
+    
+
+}
+
+/*Lo que vuelve responsivo a la página*/
+@media(max-width: 1460px){
+
+body{
+    
+    background-color: #181A1C ;
+    
+
+}
+
+.PRINCIPAL {
+        
+        display: flex!important;
+        flex-direction: column!important;
+        align-items: center!important;
+        
+        
+}
+     
+nav{
+      
+        height: 100px;
+        display: flex;
+        flex-direction: column ;
+        justify-content: space-between;
+        margin-top: 100px;
+     
+}
+
+.infosec1{
+    height: 80%!important;
+    width: 90%!important;
+    margin-top: 100px;
+}
+.inicio{
+    width: 100%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    
+}
+
+.main{
+    width: 85%!important;
+    height: 60%!important;
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px!important;
+    
+    
+
+}
+
+.infosec1 h2{
+    margin-top: 10px!important;
+    font-size: 100%!important;
+    text-align: center!important;
+    margin-bottom: 5px!important;
+ 
+}
+.infosec2 h2{
+    margin-top: 10px!important;
+    font-size: 100%!important;
+    text-align: center!important;
+    margin-bottom: 5px!important;
+ 
+}
+
+.tabla-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+.infosec2{
+    height: 100!important;
+    width: 60%!important;
+    margin-top: 20!important;
+
+}
+
+textarea{
+    height: 85%!important;
+    width: 85%!important;
+}
+
+.mresultante{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    height: 80%!important;
+    width: 90%!important;
+    background-color: #C6CDD3 ;
+}
+      
+
+.boton1{
+    background: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 50px!important;
+    height: 20px!important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    border-radius: .5rem;
+    font-size: xx-small;
+    
+    }
+
+/*ANIMACIÓN DE BOTON1*/  
+.boton1:hover{
+     
+        background-color: white;
+        border-radius: 20px!important;
+        transition: all 350ms!important;
+    
+    }
+
+    .infosec2{
+        height: 70% !important;
+        width: 60% !important;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border-radius: 25px;
+        position: relative;
+        margin-top: 30px;
+    }
+
+
+    span{
+        margin-top: 15px !important;
+        height: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+      
+        
+    }
+    
+}
+    
+    
+
+
+.boton1{
+    background: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 120px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    border-radius: .5rem;
+    
+    }
+
+/*ANIMACIÓN DE BOTON1*/  
+.boton1:hover{
+     
+        background-color: white;
+        border-radius: 20px;
+        transition: all 350ms;
+    
+    }
+
+
+
+/*TAMAÑO DEL BLOQUE PRINCIPAL*/
+.PRINCIPAL {
+ 
+    width: 100%;
+    height: 900px;
+  
+}
+
+/*TAMAÑO DEL BLOQUE INICIO*/
+.inicio{
+    width: 100%;
+    height: 900px;
+   
+}
+
+/*TITULO*/
+h1 {
+    display: block;
+    text-align: center;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    color: white;
+}
+
+/*SE DEFINE CÓMO SERÁ EL AREA QUE CONTIENE A LA NAVEGACIÓN*/
+.encabezado{
+    width: 80%;
+    height: 60px;
+    color: black;
+    margin: auto;
+    padding: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+/*SE DEFINE LA NAVEGACIÓN*/
+nav{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+
+
+}
+
+/*SE MODIFICAN LOS ESTILOS DE LINKS*/
+.encabezado a{
+    text-decoration: none;
+    background: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+    height: 40px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/*ANIMACIÓN DE LINKS*/
+nav :hover{
+    height: 50px;
+    width: 190px;
+    background-color: white;
+    border-radius: 20px;
+    transition: all 350ms;
+
+}
+/*TAMAÑO DE LA CAJA PRINCIPAL*/
+.main{
+    width: 95%;
+    height: 85%;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+   flex-direction: column;
+   align-items: center;
+    
+    
+
+}
+
+/*TAMAÑO DE LA CAJA SECCIÓN 1 */
+.infosec1{
+    height: 70%;
+    width: 50%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 25px;
+    position: relative;
+}
+
+/*LO QUE GENERA EL DEGRADADO DE LA CAJA SECCIÓN 1*/
+.infosec1::after{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    filter: blur(20px);
+    z-index: -1;
+    }
+
+.infosec1 h2{
+        margin-top: 10px;
+        font-size: 300%;
+        text-align: center;
+        margin-bottom: 5px;
+     
+ }
+
+ /*ESTILO DE LETRA (PARRAFO)*/
+.Letras{
+    font-style: arial;
+    padding: 20px;
+    text-align: justify;
+
+
+}
+span{
+    margin-top: 50px;
+    height: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  
+    
+}
+
+span .calculos{
+    margin-top: 10px;
+    height: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.boton1{
+    margin-top: 10px;
+    background: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 150px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    border-radius: .5rem;
+    
+    }
+
+/*ANIMACIÓN DE BOTON1*/  
+.boton1:hover{
+     
+        background-color: white;
+        border-radius: 20px;
+        transition: all 350ms;
+    
+    }
+
+    .boton2{
+        background: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        width: 150px;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        border-radius: .5rem;
+        
+        }
+    
+    /*ANIMACIÓN DE BOTON2*/   
+    .boton2:hover{
+           
+            background-color: white;
+            border-radius: 20px;
+            transition: all 350ms;
+        
+        }
+
+        .mresultante{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0px;
+            height: 450px;
+            width: 500px;
+            background-color: #C6CDD3 ;
+        }
+
+
+.infosec2{
+            height: 30%;
+            width: 40%;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            border-radius: 25px;
+            position: relative;
+            margin-top: 30px;
+        }
+
+        textarea{
+            height: 90%;
+            width: 90%;
+        }

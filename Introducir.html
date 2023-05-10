@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Gauss Jordan</title>
+    <!--Link al css, es necesario descargar el archivo css para que la página cargue con los archivos-->
+       <link rel="stylesheet" href="/static/css/styles3.css">
+</head>
+<body>
+    <div class="PRINCIPAL">
+        <div class="inicio">
+            <h1>Calculadora Gauss Jordan</h1>
+            <div class="encabezado">
+                <nav>
+                    <!--Navegación-->
+                    <a href="inicio.html">
+                    <button>Inicio</button>
+                        </a>
+                    <a href="Introducir.html">
+                        <button>Introducir Matriz</button>
+                        </a>
+                    <a href = "GaussJordan-DragAndDrop.html">
+                        <button>Cargar Matriz</button>
+                        </a>
+                </nav>
+            </div>
+            <div class="main">
+                <!--Caja Principal-->
+                 <div class="infosec1">
+                    <h2>Introduce el numero de columnas y filas manualmente</h2>
+
+	<form>
+		<label for="rows">Agregar Filas: </label>
+		<input type="number" id="rows" name="rows" min="1"><br><br>
+		<label for="cols">Agregar Columnas:</label>
+		<input type="number" id="cols" name="cols" min="1"><br><br>
+		<button type="button" onclick="createTable()">Validar matriz</button>
+	</form>
+	<br>
+	<table id="matrix"></table>
+	<br>
+	<button type="button" onclick="solve()">Calcular</button>
+	<br>
+	<h2>Matriz Resultado</h2>
+	<p id="result"></p>
+	<script>
+      
+    function createTable() {
+    const rows = document.getElementById("rows").value;
+    const cols = document.getElementById("cols").value;
+    let html = "";
+    for (let i = 1; i <= rows; i++) {
+        html += "<tr>";
+        for (let j = 1; j <= cols; j++) {
+            html += `<td><input type="text" id="a${i}${j}" name="a${i}${j}"></td>`;
+        }
+        html += `<td><input type="text" id="b${i}" name="b${i}">x<sub>${i}</sub></td>`;
+        html += "</tr>";
+    }
+    document.getElementById("matrix").innerHTML = html;
+}
+
+function solve() {
+    const rows = document.getElementById("rows").value;
+    const cols = document.getElementById("cols").value;
+    let matrix = [];
+    for (let i = 1; i <= rows; i++) {
+        let row = [];
+        for (let j = 1; j <= cols; j++) {
+            let value = document.getElementById(`a${i}${j}`).value;
+            row.push(parseFraction(value));
+        }
+        let value = document.getElementById(`b${i}`).value;
+        row.push(parseFraction(value));
+        matrix.push(row);
+    }
+    let result = gaussJordan(matrix);
+    let html = "";
+    for (let i = 0; i < result.length; i++) {
+        html += `x<sub>${i+1}</sub> = ${result[i].toString()}<br>`;
+    }
+    document.getElementById("result").innerHTML = html;
+}
+
+function parseFraction(str) {
+    if (str === "") {
+        return new Fraction(0, 1);
+    }
+    let parts = str.split("/");
+    if (parts.length === 1) {
+        return new Fraction(parseInt(parts[0]), 1);
+    }
+    return new Fraction(parseInt(parts[0]), parseInt(parts[1]));
+}
+
+function gaussJordan(matrix) {
+    let rows = matrix.length;
+    let cols = matrix[0].length;
+    for (let i = 0; i < rows; i++) {
+        let pivot = matrix[i][i];
+        for (let j = i + 1; j < rows; j++) {
+            let factor = matrix[j][i].div(pivot);
+            for (let k = i; k < cols; k++) {
+                matrix[j][                k] = matrix[j][k].sub(matrix[i][k].mul(factor));
+            }
+        }
+    }
+    for (let i = rows - 1; i >= 0; i--) {
+        for (let j = i - 1; j >= 0; j--) {
+            let factor = matrix[j][i].div(matrix[i][i]);
+            for (let k = i; k < cols; k++) {
+                matrix[j][k] = matrix[j][k].sub(matrix[i][k].mul(factor));
+            }
+        }
+    }
+    let result = [];
+    for (let i = 0; i < rows; i++) {
+        let value = matrix[i][cols-1].div(matrix[i][i]);
+        result.push(value);
+    }
+    return result;
+}
+
+class Fraction {
+    constructor(numerator, denominator) {
+        if (denominator === 0) {
+            throw new Error("Denominator cannot be zero");
+        }
+        if (denominator < 0) {
+            numerator = -numerator;
+            denominator = -denominator;
+        }
+        let gcd = Fraction.gcd(Math.abs(numerator), denominator);
+        this.numerator = numerator / gcd;
+        this.denominator = denominator / gcd;
+    }
+
+    add(other) {
+        let numerator = this.numerator * other.denominator + other.numerator * this.denominator;
+        let denominator = this.denominator * other.denominator;
+        return new Fraction(numerator, denominator);
+    }
+
+    sub(other) {
+        let numerator = this.numerator * other.denominator - other.numerator * this.denominator;
+        let denominator = this.denominator * other.denominator;
+        return new Fraction(numerator, denominator);
+    }
+
+    mul(other) {
+        let numerator = this.numerator * other.numerator;
+        let denominator = this.denominator * other.denominator;
+        return new Fraction(numerator, denominator);
+    }
+
+    div(other) {
+        if (other.numerator === 0) {
+            throw new Error("No se puede dividir entre 0");
+        }
+        let numerator = this.numerator * other.denominator;
+        let denominator = this.denominator * other.numerator;
+        return new Fraction(numerator, denominator);
+    }
+
+    toString() {
+        if (this.denominator === 1) {
+            return this.numerator.toString();
+        }
+        return `${this.numerator}/${this.denominator}`;
+    }
+
+    static gcd(a, b) {
+        if (b === 0) {
+            return a;
+        }
+        return Fraction.gcd(b, a % b);
+    }
+}
+  </script>
+ 
+</body>
+</html>
